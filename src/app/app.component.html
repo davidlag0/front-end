@@ -1,20 +1,51 @@
-<!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
-  <h1>
-    Welcome to {{ title }}!
-  </h1>
-  <img width="300" alt="Angular Logo" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==">
-</div>
-<h2>Here are some links to help you start: </h2>
-<ul>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://angular.io/tutorial">Tour of Heroes</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://github.com/angular/angular-cli/wiki">CLI Documentation</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://blog.angular.io/">Angular blog</a></h2>
-  </li>
-</ul>
+<!--- <nav class="topnav">
+  <span><a class="active" routerLink="/">Data Entries</a></span>
+  <span><a>Reports</a></span>
+  <span><a routerLink="/dashboard">Dashboards</a></span>
+  <span><a routerLink="/heroes">Settings</a></span>
 
+  <div class="login">
+    <div *ngIf="authService.token">
+      <span><a>User: {{ authService.username }}</a></span>
+      <span><a href="" (click)="logout()">Logout</a></span>
+    </div>
+    <div *ngIf="!authService.token">
+      <span><a href="">Login</a></span>
+    </div>
+  </div>
+
+</nav> --->
+<router-outlet></router-outlet>
+
+<!---
+<h2>Log In</h2>
+<div *ngIf="!authService.token">
+  <div>
+    <label>Username:</label><br />
+    <input type="text" name="login-username" [(ngModel)]="user.username">
+    <span *ngFor="let error of authService.errors.username"><br />
+    {{ error }}</span>
+  </div>
+  <div>
+    <label>Password:</label><br />
+    <input type="password" name="login-password" [(ngModel)]="user.password">
+    <span *ngFor="let error of authService.errors.password"><br />
+    {{ error }}</span>
+  </div>
+  <div>
+    <button (click)="login()">Log In</button>
+  </div>
+  <div>
+    <span *ngFor="let error of authService.errors.non_field_errors">{{ error }}<br /></span>
+  </div>
+</div>
+<div *ngIf="authService.token">
+  <div>You are logged in as {{ authService.username }}.<br />
+    Token Expires: {{ authService.token_expires }}<br />
+    <button (click)="refreshToken()">Refresh Token</button>
+    <button (click)="logout()">Log Out</button>
+  </div>
+</div>
+
+<app-messages></app-messages>
+--->
