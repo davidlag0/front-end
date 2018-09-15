@@ -1,20 +1,5 @@
-<!--- <nav class="topnav">
-  <span><a class="active" routerLink="/">Data Entries</a></span>
-  <span><a>Reports</a></span>
-  <span><a routerLink="/dashboard">Dashboards</a></span>
-  <span><a routerLink="/heroes">Settings</a></span>
+<app-header></app-header>
 
-  <div class="login">
-    <div *ngIf="authService.token">
-      <span><a>User: {{ authService.username }}</a></span>
-      <span><a href="" (click)="logout()">Logout</a></span>
-    </div>
-    <div *ngIf="!authService.token">
-      <span><a href="">Login</a></span>
-    </div>
-  </div>
-
-</nav> --->
 <router-outlet></router-outlet>
 
 <!---

@@ -66,3 +66,12 @@ tr:nth-child(even) {
 .topnav .login {
   float: right;
 }
+
+.topnav .logo {
+  background-color: #228b22;
+  color: white;
+  float: left;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}

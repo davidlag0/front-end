@@ -8,11 +8,10 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { DataentriesComponent } from './dataentries/dataentries.component';
 
 const routes: Routes = [
-  //{ path: '', redirectTo: '/dashboard', pathMatch: 'full' },
   { path: '', component: DataentriesComponent, canActivate: [AuthGuard] },
-  { path: 'dashboard', component: DashboardComponent },
-  { path: 'detail/:id', component: HeroDetailComponent },
-  { path: 'heroes', component: HeroesComponent },
+  { path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard] },
+  { path: 'detail/:id', component: HeroDetailComponent, canActivate: [AuthGuard] },
+  { path: 'heroes', component: HeroesComponent, canActivate: [AuthGuard] },
   { path: 'login', component: LoginComponent },
 
   // Redirect to home.

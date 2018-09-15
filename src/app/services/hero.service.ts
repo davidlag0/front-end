@@ -2,17 +2,17 @@ import { Injectable } from '@angular/core';
 
 import { Observable, of } from 'rxjs';
 
-import { Hero } from './hero';
-import { HEROES } from './mock-heroes';
+import { Hero } from '../hero';
+import { HEROES } from '../mock-heroes';
 import { MessageService } from './message.service';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { catchError, map, tap } from 'rxjs/operators';
 import { AuthService } from './auth.service';
 
+
 const httpOptions = {
   headers: new HttpHeaders({
-    'Content-Type':  'application/json',
-    'Authorization': 'my-auth-token'
+    'Content-Type':  'application/json'
   })
 };
 
@@ -29,7 +29,6 @@ export class HeroService {
 
   /** GET heroes from the server */
   getHeroes (): Observable<Hero[]> {
-    console.log("token:" + this.authService.auth_token);
     return this.http.get<Hero[]>(this.heroesUrl + "/", httpOptions)
       .pipe(
         tap(heroes => this.log('fetched heroes')),

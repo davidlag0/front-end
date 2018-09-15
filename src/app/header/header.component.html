@@ -1,0 +1,23 @@
+<nav class="topnav">
+  <span class="logo">Sequoia</span>
+  <div *ngIf="authService.loggedIn()">
+    <span><a routerLink="/" routerLinkActive="active"
+      [routerLinkActiveOptions]="{exact: true}">Data Entries</a></span>
+    <span><a>Reports</a></span>
+    <span><a routerLink="/dashboard" routerLinkActive="active"
+      [routerLinkActiveOptions]="{exact: true}">Dashboards</a></span>
+    <span><a routerLink="/heroes" routerLinkActive="active"
+      [routerLinkActiveOptions]="{exact: true}">Settings</a></span>
+  </div>
+
+  <div class="login">
+    <div *ngIf="authService.loggedIn()">
+      <span><a>User: {{ authService.username }}</a></span>
+      <span><a href="" (click)="authService.logout()">Logout</a></span>
+    </div>
+    <div *ngIf="!authService.loggedIn()">
+      <span><a href="">Login</a></span>
+    </div>
+  </div>
+
+</nav>
