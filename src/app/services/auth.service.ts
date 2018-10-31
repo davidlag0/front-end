@@ -105,14 +105,15 @@ export class AuthService {
   public loggedIn() {
     if (JSON.parse(sessionStorage.getItem("auth_token_expires"))) {
       if (JSON.parse(sessionStorage.getItem("auth_token_expires")).valueOf() > new Date().valueOf()) {
+        console.log(new Date().valueOf())
         return true;
       }
       else {
-        return false;
+        this.logout()
       }
     }
     else {
-      return false;
+      this.logout()
     }
   }
 

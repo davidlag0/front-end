@@ -9,7 +9,7 @@ export class AuthGuard implements CanActivate {
   constructor(private router: Router) { }
 
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
-    if (sessionStorage.getItem('auth_token')) {
+    if (sessionStorage.getItem('auth_token_expires') && (JSON.parse(sessionStorage.getItem("auth_token_expires")).valueOf() > new Date().valueOf()) {
       // User is logged in so return true.
       return true;
     }
