@@ -36,8 +36,6 @@ export class AuthService {
     if (sessionStorage.getItem("username")) {
       this.username = sessionStorage.getItem("username");
     }
-
-    console.log("constructor");
   }
 
 /*
