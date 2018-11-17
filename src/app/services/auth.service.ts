@@ -35,17 +35,9 @@ export class AuthService {
 
     if (sessionStorage.getItem("username")) {
       this.username = sessionStorage.getItem("username");
+      this.auth_token = sessionStorage.getItem("auth_token");
     }
   }
-
-/*
-  ngOnInit() {
-    console.log("bloppy!");
-    if (sessionStorage.getItem("username")) {
-      this.username = sessionStorage.getItem("username");
-    }
-  };
-  */
 
   // Uses http.post() to get an auth token from djangorestframework-jwt endpoint
   public login(user) {
@@ -107,10 +99,12 @@ export class AuthService {
       }
       else {
         this.logout()
+        return false;
       }
     }
     else {
       this.logout()
+      return false;
     }
   }
 
