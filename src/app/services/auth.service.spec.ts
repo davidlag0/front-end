@@ -1,7 +1,7 @@
 import { TestBed, inject } from '@angular/core/testing';
 import { AuthService } from './auth.service';
 import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
-import { HttpClient, HttpErrorResponse } from '@angular/common/http';
+// import { HttpClient } from '@angular/common/http';
 
 interface Data {
   token: string;
@@ -26,7 +26,7 @@ describe('AuthService', () => {
     }
   };
 
-  let http: HttpClient;
+  // let http: HttpClient;
   let httpTestingController: HttpTestingController;
 
   beforeEach(() => {
@@ -36,7 +36,7 @@ describe('AuthService', () => {
     });
 
     // Inject the http service and test controller for each test
-    http = TestBed.get(HttpClient);
+    // http = TestBed.get(HttpClient);
     httpTestingController = TestBed.get(HttpTestingController);
 
     spyOn(sessionStorage, 'getItem')
@@ -60,27 +60,29 @@ describe('AuthService', () => {
 
   describe('loggedIn()', () => {
     beforeEach(() => {
-      sessionStorage.setItem("username", "fake_user");
-      sessionStorage.setItem("auth_token", "fake_token");
+      sessionStorage.setItem('username', 'fake_user');
+      sessionStorage.setItem('auth_token', 'fake_token');
     });
 
     it('session is still valid',
       inject([AuthService], (service: AuthService) => {
-        sessionStorage.setItem("auth_token_expires", (new Date().valueOf() + 300).toString());
+        sessionStorage.setItem('auth_token_expires', (new Date().valueOf() + 300).toString());
         expect(service.loggedIn()).toBeTruthy();
     }));
 
     it('session has expired',
       inject([AuthService], (service: AuthService) => {
-        sessionStorage.setItem("auth_token_expires", (new Date().valueOf() - 300).toString());
+        sessionStorage.setItem('auth_token_expires', (new Date().valueOf() - 300).toString());
         expect(service.loggedIn()).toBeFalsy();
     }));
-  })
+  });
 
   it('login() with valid credentials',
     inject([AuthService], (service: AuthService) => {
 
-    const testData: Data = {token: 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJ1c2VybmFtZSI6ImFkbWluIiwiZXhwIjoxNTQyNjAyOTA2LCJlbWFpbCI6IiIsIm9yaWdfaWF0IjoxNTQyNTk5MzA2fQ.ry1opounuul32aEMSzp6X8kk9RO4vH_5VcRPWD4WeLQ'};
+    const testData: Data = {token: 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJ1c2VybmFtZSI6ImFkbWluIiwiZX\
+                                    hwIjoxNTQyNjAyOTA2LCJlbWFpbCI6IiIsIm9yaWdfaWF0IjoxNTQyNTk5MzA2fQ.ry1opounuul32aEMSzp\
+                                    6X8kk9RO4vH_5VcRPWD4WeLQ'};
 
     const user = {
       username: 'blop',
@@ -121,7 +123,9 @@ describe('AuthService', () => {
   it('refreshToken() using a valid token',
     inject([AuthService], (service: AuthService) => {
 
-    const testData: Data = {token: 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJ1c2VybmFtZSI6ImFkbWluIiwiZXhwIjoxNTQyNjAyOTA2LCJlbWFpbCI6IiIsIm9yaWdfaWF0IjoxNTQyNTk5MzA2fQ.ry1opounuul32aEMSzp6X8kk9RO4vH_5VcRPWD4WeLQ'};
+    const testData: Data = {token: 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJ1c2VybmFtZSI6ImFkbWluIiwiZX\
+                                    hwIjoxNTQyNjAyOTA2LCJlbWFpbCI6IiIsIm9yaWdfaWF0IjoxNTQyNTk5MzA2fQ.ry1opounuul32aEMSz\
+                                    p6X8kk9RO4vH_5VcRPWD4WeLQ'};
 
     service.refreshToken();
 

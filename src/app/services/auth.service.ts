@@ -1,7 +1,7 @@
-import { OnInit } from '@angular/core';
+// import { OnInit } from '@angular/core';
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Observable } from "rxjs";
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
@@ -33,9 +33,9 @@ export class AuthService {
       headers: new HttpHeaders({'Content-Type': 'application/json'})
     };
 
-    if (sessionStorage.getItem("username")) {
-      this.username = sessionStorage.getItem("username");
-      this.auth_token = sessionStorage.getItem("auth_token");
+    if (sessionStorage.getItem('username')) {
+      this.username = sessionStorage.getItem('username');
+      this.auth_token = sessionStorage.getItem('auth_token');
     }
   }
 
@@ -72,9 +72,9 @@ export class AuthService {
     this.token_expires = null;
     this.username = null;
 
-    sessionStorage.removeItem("username");
-    sessionStorage.removeItem("auth_token");
-    sessionStorage.removeItem("auth_token_expires");
+    sessionStorage.removeItem('username');
+    sessionStorage.removeItem('auth_token');
+    sessionStorage.removeItem('auth_token_expires');
   }
 
   private updateData(auth_token) {
@@ -87,23 +87,21 @@ export class AuthService {
     this.token_expires = new Date(token_decoded.exp * 1000);
     this.username = token_decoded.username;
 
-    sessionStorage.setItem("username", this.username);
-    sessionStorage.setItem("auth_token", this.auth_token);
-    sessionStorage.setItem("auth_token_expires", JSON.stringify(this.token_expires.valueOf()) );
+    sessionStorage.setItem('username', this.username);
+    sessionStorage.setItem('auth_token', this.auth_token);
+    sessionStorage.setItem('auth_token_expires', JSON.stringify(this.token_expires.valueOf()) );
   }
 
   public loggedIn() {
-    if (JSON.parse(sessionStorage.getItem("auth_token_expires"))) {
-      if (JSON.parse(sessionStorage.getItem("auth_token_expires")).valueOf() > new Date().valueOf()) {
+    if (JSON.parse(sessionStorage.getItem('auth_token_expires'))) {
+      if (JSON.parse(sessionStorage.getItem('auth_token_expires')).valueOf() > new Date().valueOf()) {
         return true;
-      }
-      else {
-        this.logout()
+      } else {
+        this.logout();
         return false;
       }
-    }
-    else {
-      this.logout()
+    } else {
+      this.logout();
       return false;
     }
   }
