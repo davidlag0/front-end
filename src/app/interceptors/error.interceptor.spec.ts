@@ -1,5 +1,5 @@
 import { TestBed, inject } from '@angular/core/testing';
-import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { HttpClient, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
 import { AuthService } from '../services/auth.service';
 import { ErrorInterceptor } from './error.interceptor';
@@ -29,24 +29,23 @@ describe('ErrorInterceptor', () => {
   afterEach(inject([HttpTestingController], (httpMock: HttpTestingController) => {
     httpMock.verify();
   }));
-/*
-  describe('intercepting http calls', () => {
-    it('log user out if 401', inject([HttpClient, HttpTestingController], (http: HttpClient, httpMock: HttpTestingController) => {
 
-      const mockErrorResponse = {
-          status: 401, statusText: 'Unauthorized'
-      };
+  describe('intercepting http calls', () => {
+    it('should log user out if 401', inject([HttpClient, HttpTestingController], (http: HttpClient, httpMock: HttpTestingController) => {
 
       http.get('/data').subscribe(
+        data => {
+          expect(data).toBeTruthy();
+        },
         err => {
           expect(err).toBeTruthy();
         }
       );
 
       const req = httpMock.expectOne('/data');
-      req.flush(mockErrorResponse);
+      req.flush('401 error', { status: 401, statusText: 'Unauthorized' });
 
       httpMock.verify();
     }));
-  });*/
+  });
 });

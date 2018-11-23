@@ -31,7 +31,8 @@ describe('JwtInterceptor', () => {
   }));
 
   describe('making http calls', () => {
-    it('adds Authorization header', inject([HttpClient, HttpTestingController], (http: HttpClient, httpMock: HttpTestingController) => {
+    it('should add an Authorization header', inject([HttpClient, HttpTestingController],
+          (http: HttpClient, httpMock: HttpTestingController) => {
 
       http.get('/data').subscribe(
         response => {

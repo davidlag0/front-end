@@ -64,20 +64,20 @@ describe('AuthService', () => {
       sessionStorage.setItem('auth_token', 'fake_token');
     });
 
-    it('session is still valid',
+    it('should return true if token is not expired',
       inject([AuthService], (service: AuthService) => {
         sessionStorage.setItem('auth_token_expires', (new Date().valueOf() + 300).toString());
         expect(service.loggedIn()).toBeTruthy();
     }));
 
-    it('session has expired',
+    it('should be false if token has expired',
       inject([AuthService], (service: AuthService) => {
         sessionStorage.setItem('auth_token_expires', (new Date().valueOf() - 300).toString());
         expect(service.loggedIn()).toBeFalsy();
     }));
   });
 
-  it('login() with valid credentials',
+  it('login() should get a valid token if credentials are valid',
     inject([AuthService], (service: AuthService) => {
 
     const testData: Data = {token: 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJ1c2VybmFtZSI6ImFkbWluIiwiZX\
@@ -98,7 +98,7 @@ describe('AuthService', () => {
     req.flush(testData);
   }));
 
-  it('login() with invalid credentials',
+  it('login() should get a 401 error if credentials are invalid',
     inject([AuthService], (service: AuthService) => {
 
     const user = {
@@ -120,7 +120,7 @@ describe('AuthService', () => {
     req.flush('401 error', { status: 401, statusText: 'Unauthorized' });
   }));
 
-  it('refreshToken() using a valid token',
+  it('refreshToken() should get a valid token if token is valid',
     inject([AuthService], (service: AuthService) => {
 
     const testData: Data = {token: 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJ1c2VybmFtZSI6ImFkbWluIiwiZX\
@@ -134,7 +134,7 @@ describe('AuthService', () => {
     req.flush(testData);
   }));
 
-  it('refreshToken() using an invalid token',
+  it('refreshToken() should get a 401 error if token is not valid',
     inject([AuthService], (service: AuthService) => {
 
     service.refreshToken();
