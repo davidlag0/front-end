@@ -13,7 +13,7 @@ export class LoginComponent implements OnInit {
 
   loginForm: FormGroup;
   loading = false;
-  submitted = false;
+  // submitted = false;
   returnUrl: string;
   error = '';
 
@@ -43,7 +43,7 @@ export class LoginComponent implements OnInit {
   get f() { return this.loginForm.controls; }
 
   onSubmit() {
-    this.submitted = true;
+    // this.submitted = true;
 
     // stop here if form is invalid
     if (this.loginForm.invalid) {
