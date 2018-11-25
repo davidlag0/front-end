@@ -48,7 +48,7 @@ export class AuthService {
           observer.next(data['token']);
         },
         err => {
-          this.errors = err['error'];
+          this.errors = err;
           observer.error(this.errors);
         }
       );
@@ -62,7 +62,7 @@ export class AuthService {
         this.updateData(data['token']);
       },
       err => {
-        this.errors = err['error'];
+        this.errors = err;
       }
     );
   }

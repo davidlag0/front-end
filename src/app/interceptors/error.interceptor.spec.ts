@@ -13,15 +13,8 @@ describe('ErrorInterceptor', () => {
     TestBed.configureTestingModule({
       imports: [HttpClientTestingModule],
       providers: [
-        {
-          provide: AuthService,
-          useValue: mockAuthService
-        },
-        {
-          provide: HTTP_INTERCEPTORS,
-          useClass: ErrorInterceptor,
-          multi: true
-        }
+        { provide: AuthService, useValue: mockAuthService },
+        { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true }
       ]
     });
   });
@@ -35,7 +28,7 @@ describe('ErrorInterceptor', () => {
 
       http.get('/data').subscribe(
         data => {
-          expect(data).toBeTruthy();
+          expect(data).toBeFalsy();
         },
         err => {
           expect(err).toBeTruthy();
@@ -45,6 +38,23 @@ describe('ErrorInterceptor', () => {
       const req = httpMock.expectOne('/data');
       req.flush('401 error', { status: 401, statusText: 'Unauthorized' });
 
+      httpMock.verify();
+    }));
+
+    it('should let the request go as-is if no error',
+        inject([HttpClient, HttpTestingController], (http: HttpClient, httpMock: HttpTestingController) => {
+
+      http.get('/data').subscribe(
+        data => {
+          expect(data).toBeTruthy();
+        },
+        err => {
+          expect(err).toBeFalsy();
+        }
+      );
+
+      const req = httpMock.expectOne('/data');
+      req.flush('200 OK', { status: 200, statusText: 'OK'});
       httpMock.verify();
     }));
   });
