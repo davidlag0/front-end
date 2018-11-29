@@ -16,6 +16,8 @@ import { LoginComponent } from './login/login.component';
 import { ErrorInterceptor } from './interceptors/error.interceptor';
 import { JwtInterceptor} from './interceptors/jwt.interceptor';
 import { HeaderComponent } from './header/header.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MaterialAppModule } from './ngmaterial.module';
 
 @NgModule({
   declarations: [
@@ -34,7 +36,9 @@ import { HeaderComponent } from './header/header.component';
     FormsModule,
     AppRoutingModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    BrowserAnimationsModule,
+    MaterialAppModule
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
