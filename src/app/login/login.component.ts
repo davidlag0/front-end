@@ -59,7 +59,7 @@ export class LoginComponent implements OnInit {
         error => {
           this.error = error;
           this.loading = false;
-          this.snackBar.open('Bad username or password', 'Close', {
+          this.snackBar.open('Bad username or password', '', {
             duration: 2000,
           });
           // console.log(this.error);
