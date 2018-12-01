@@ -1,5 +1,5 @@
 <nav class="topnav">
-  <span class="logo">Sequoia</span>
+  <img src="/assets/sequoia_logo.svg" class="logo" height="30">
   <div *ngIf="authService.loggedIn()">
     <span><a routerLink="/" routerLinkActive="active"
       [routerLinkActiveOptions]="{exact: true}">Data Entries</a></span>
@@ -15,9 +15,9 @@
       <span><a>User: {{ authService.username }}</a></span>
       <span><a href="" (click)="authService.logout()">Logout</a></span>
     </div>
-    <div *ngIf="!authService.loggedIn()">
+    <!-- <div *ngIf="!authService.loggedIn()">
       <span><a href="">Login</a></span>
-    </div>
+    </div> -->
   </div>
 
 </nav>

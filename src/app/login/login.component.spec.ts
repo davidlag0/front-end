@@ -7,6 +7,8 @@ import { AuthService } from '../services/auth.service';
 import { Router, ActivatedRoute } from '@angular/router';
 import { of } from 'rxjs';
 import { throwError } from 'rxjs';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MaterialAppModule } from '../ngmaterial.module';
 
 class MockActivatedRoute {
   snapshot = { queryParams: 'testparam' };
@@ -35,7 +37,11 @@ describe('LoginComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      imports: [ReactiveFormsModule, RouterTestingModule, HttpClientModule],
+      imports: [ReactiveFormsModule,
+                RouterTestingModule,
+                HttpClientModule,
+                BrowserAnimationsModule,
+                MaterialAppModule],
       declarations: [ LoginComponent ],
       providers: [
         { provide: AuthService, useValue: mockAuthService },

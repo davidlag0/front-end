@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-
 import { AuthService } from '../services/auth.service';
+import { MatSnackBar } from '@angular/material';
 
 @Component({
   selector: 'app-login',
@@ -13,7 +13,7 @@ export class LoginComponent implements OnInit {
 
   loginForm: FormGroup;
   loading = false;
-  // submitted = false;
+  submitted = false;
   returnUrl: string;
   error = '';
 
@@ -22,7 +22,8 @@ export class LoginComponent implements OnInit {
   constructor(private formBuilder: FormBuilder,
         private route: ActivatedRoute,
         private router: Router,
-        private authService: AuthService) { }
+        private authService: AuthService,
+        private snackBar: MatSnackBar) { }
 
   ngOnInit() {
     this.user = {
@@ -39,11 +40,8 @@ export class LoginComponent implements OnInit {
     this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
   }
 
-  // Convenience getter for easy access to form fields.
-  get f() { return this.loginForm.controls; }
-
   onSubmit() {
-    // this.submitted = true;
+    this.submitted = true;
 
     // stop here if form is invalid
     if (this.loginForm.invalid) {
@@ -52,16 +50,18 @@ export class LoginComponent implements OnInit {
 
     this.loading = true;
 
-    this.user.username = this.f.username.value;
-    this.user.password = this.f.password.value;
+    this.user.username = this.loginForm.controls.username.value;
+    this.user.password = this.loginForm.controls.password.value;
 
     this.authService.login(this.user)
       .subscribe(
         data => { this.router.navigate([this.returnUrl]); },
         error => {
-          // this.error = error['non_field_errors'];
           this.error = error;
           this.loading = false;
+          this.snackBar.open('Bad username or password', 'Close', {
+            duration: 2000,
+          });
           // console.log(this.error);
         });
   }
