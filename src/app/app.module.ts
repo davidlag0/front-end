@@ -18,6 +18,9 @@ import { JwtInterceptor} from './interceptors/jwt.interceptor';
 import { HeaderComponent } from './header/header.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialAppModule } from './ngmaterial.module';
+import { NavigationComponent } from './navigation/navigation.component';
+import { LayoutModule } from '@angular/cdk/layout';
+import { MatToolbarModule, MatButtonModule, MatSidenavModule, MatIconModule, MatListModule } from '@angular/material';
 
 @NgModule({
   declarations: [
@@ -29,7 +32,8 @@ import { MaterialAppModule } from './ngmaterial.module';
     // HeroSearchComponent,
     DataentriesComponent,
     LoginComponent,
-    HeaderComponent
+    HeaderComponent,
+    NavigationComponent
   ],
   imports: [
     BrowserModule,
@@ -38,7 +42,13 @@ import { MaterialAppModule } from './ngmaterial.module';
     HttpClientModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
-    MaterialAppModule
+    MaterialAppModule,
+    LayoutModule,
+    MatToolbarModule,
+    MatButtonModule,
+    MatSidenavModule,
+    MatIconModule,
+    MatListModule
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },

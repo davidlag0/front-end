@@ -1,3 +1,26 @@
+<mat-toolbar color="primary">
+  <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+    <img src="/assets/sequoia_logo.svg" class="logo" height="30">
+  </a>
+  <div *ngIf="authService.loggedIn()">
+    <span><a mat-button routerLink="/" routerLinkActive="active"
+      [routerLinkActiveOptions]="{exact: true}">Data Entries</a></span>
+    <span><a mat-button>Reports</a></span>
+    <span><a mat-button routerLink="/dashboard" routerLinkActive="active"
+      [routerLinkActiveOptions]="{exact: true}">Dashboards</a></span>
+    <span><a mat-button routerLink="/heroes" routerLinkActive="active"
+      [routerLinkActiveOptions]="{exact: true}">Settings</a></span>
+  </div>
+  <span class="spacer"></span>
+  <div class="topnav login">
+    <div *ngIf="authService.loggedIn()">
+      <span><a mat-button>User: {{ authService.username }}</a></span>
+      <span><a mat-button href="" (click)="authService.logout()">Logout</a></span>
+    </div>
+  </div>
+</mat-toolbar>
+
+<!--
 <nav class="topnav">
   <img src="/assets/sequoia_logo.svg" class="logo" height="30">
   <div *ngIf="authService.loggedIn()">
@@ -15,9 +38,7 @@
       <span><a>User: {{ authService.username }}</a></span>
       <span><a href="" (click)="authService.logout()">Logout</a></span>
     </div>
-    <!-- <div *ngIf="!authService.loggedIn()">
-      <span><a href="">Login</a></span>
-    </div> -->
   </div>
 
 </nav>
+-->
