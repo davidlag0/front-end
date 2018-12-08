@@ -16,6 +16,13 @@
   z-index: 1;
 }
 
+.list-toolbar .mat-button {
+  border-radius: 100%;
+  padding: 1px 7px 2px;
+  margin-left: 1em;
+  min-width: unset;
+}
+
 .logo {
   padding-left: 0.7em;
   padding-top: 0.3em;
@@ -34,6 +41,11 @@
   margin-bottom: 1em;
 }
 
+.new-transaction-button .mat-icon {
+  margin-left: -0.3em;
+  margin-right: 0.3em;
+}
+
 .transactions-button {
   left: -1em;
   padding-left: 5em;
@@ -41,4 +53,12 @@
 
 .mat-list-item .mat-icon {
   margin-right: 0.5em;
+}
+
+.list-toolbar .mat-checkbox {
+  margin-left: 0.5em;
+}
+
+.spacer {
+  flex: 1 1 auto;
 }

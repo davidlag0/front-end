@@ -3,17 +3,22 @@
     type="button"
     aria-label="Toggle sidenav"
     mat-icon-button
-    (click)="drawer.toggle()">
+    (click)="this.toggleSidenavCmd($event)"
+    *ngIf="authService.loggedIn()">
     <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
   </button>
   <img src="/assets/sequoia_logo.svg" class="logo" height="30">
+  <span class="spacer"></span>
+  <div *ngIf="authService.loggedIn()">
+    <button mat-button>User: {{ authService.username }}</button>
+    <button mat-button (click)="authService.logout()">Logout</button>
+  </div>
 </mat-toolbar>
 
 <mat-sidenav-container class="sidenav-container">
-  <mat-sidenav #drawer class="sidenav" mode="side" opened>
+  <mat-sidenav #drawer class="sidenav" mode="side" opened *ngIf="authService.loggedIn()">
     <button mat-flat-button color="primary" class="new-transaction-button">
-      <mat-icon>add</mat-icon>
-      New transaction
+      <mat-icon>add</mat-icon>New transaction
     </button>
     <mat-divider></mat-divider>
     <mat-nav-list>
@@ -25,17 +30,36 @@
         <mat-icon>description</mat-icon>
         <a href="#">Reports</a>
       </mat-list-item>
+      <mat-list-item>
+        <mat-icon>list_alt</mat-icon>
+        <a href="#">Home Inventory</a>
+      </mat-list-item>
+      <mat-list-item>
+        <mat-icon>dashboard</mat-icon>
+        <a href="#">Dashboards</a>
+      </mat-list-item>
+      <mat-list-item>
+        <mat-icon>library_books</mat-icon>
+        <a href="#">Documents</a>
+      </mat-list-item>
+      <mat-list-item>
+        <mat-icon>settings</mat-icon>
+        <a href="#">Settings</a>
+      </mat-list-item>
     </mat-nav-list>
   </mat-sidenav>
   <mat-sidenav-content>
     <!-- Add Content Here -->
-    <mat-toolbar>
-      Toolbar
+    <mat-toolbar class="list-toolbar" *ngIf="authService.loggedIn()">
       <mat-checkbox></mat-checkbox>
+      <button mat-button><mat-icon>refresh</mat-icon></button>
     </mat-toolbar>
-    blop
+    <router-outlet></router-outlet>
   </mat-sidenav-content>
 </mat-sidenav-container>
+
+
+<!-- Could be used to help make the app responsive -->
 
 <!-- <mat-sidenav-container class="sidenav-container">
   <mat-sidenav #drawer class="sidenav" fixedInViewport="true"

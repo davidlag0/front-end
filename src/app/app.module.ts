@@ -12,6 +12,7 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 // import { HeroSearchComponent } from './hero-search/hero-search.component';
 import { DataentriesComponent } from './dataentries/dataentries.component';
 import { AuthService } from './services/auth.service';
+import { LayoutService } from './services/layout.service';
 import { LoginComponent } from './login/login.component';
 import { ErrorInterceptor } from './interceptors/error.interceptor';
 import { JwtInterceptor} from './interceptors/jwt.interceptor';
@@ -19,6 +20,8 @@ import { HeaderComponent } from './header/header.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialAppModule } from './ngmaterial.module';
 import { NavigationComponent } from './navigation/navigation.component';
+import { LoginLayoutComponent } from './layouts/login-layout/login-layout.component';
+import { HomeLayoutComponent } from './layouts/home-layout/home-layout.component';
 import { LayoutModule } from '@angular/cdk/layout';
 import { MatToolbarModule, MatButtonModule, MatSidenavModule, MatIconModule, MatListModule } from '@angular/material';
 
@@ -33,7 +36,9 @@ import { MatToolbarModule, MatButtonModule, MatSidenavModule, MatIconModule, Mat
     DataentriesComponent,
     LoginComponent,
     HeaderComponent,
-    NavigationComponent
+    NavigationComponent,
+    LoginLayoutComponent,
+    HomeLayoutComponent
   ],
   imports: [
     BrowserModule,
@@ -53,7 +58,8 @@ import { MatToolbarModule, MatButtonModule, MatSidenavModule, MatIconModule, Mat
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
     { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
-    AuthService
+    AuthService,
+    LayoutService
   ],
   bootstrap: [AppComponent]
 })
