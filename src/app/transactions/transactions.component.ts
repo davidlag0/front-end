@@ -16,11 +16,11 @@ const NAMES: string[] = ['Maia', 'Asher', 'Olivia', 'Atticus', 'Amelia', 'Jack',
   'Cora', 'Levi', 'Violet', 'Arthur', 'Mia', 'Thomas', 'Elizabeth'];
 
 @Component({
-  selector: 'app-dataentries',
-  templateUrl: './dataentries.component.html',
-  styleUrls: ['./dataentries.component.css']
+  selector: 'app-transactions',
+  templateUrl: './transactions.component.html',
+  styleUrls: ['./transactions.component.css']
 })
-export class DataentriesComponent implements OnInit {
+export class TransactionsComponent implements OnInit {
   displayedColumns: string[] = ['id', 'name', 'progress', 'color'];
   dataSource: MatTableDataSource<UserData>;
 

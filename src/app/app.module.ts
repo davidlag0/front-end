@@ -10,7 +10,7 @@ import { AppRoutingModule } from './/app-routing.module';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 // import { HeroSearchComponent } from './hero-search/hero-search.component';
-import { DataentriesComponent } from './dataentries/dataentries.component';
+import { TransactionsComponent } from './transactions/transactions.component';
 import { AuthService } from './services/auth.service';
 import { LayoutService } from './services/layout.service';
 import { LoginComponent } from './login/login.component';
@@ -20,8 +20,6 @@ import { HeaderComponent } from './header/header.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialAppModule } from './ngmaterial.module';
 import { NavigationComponent } from './navigation/navigation.component';
-import { LoginLayoutComponent } from './layouts/login-layout/login-layout.component';
-import { HomeLayoutComponent } from './layouts/home-layout/home-layout.component';
 import { LayoutModule } from '@angular/cdk/layout';
 import { MatToolbarModule, MatButtonModule, MatSidenavModule, MatIconModule, MatListModule } from '@angular/material';
 
@@ -33,12 +31,10 @@ import { MatToolbarModule, MatButtonModule, MatSidenavModule, MatIconModule, Mat
     MessagesComponent,
     DashboardComponent,
     // HeroSearchComponent,
-    DataentriesComponent,
+    TransactionsComponent,
     LoginComponent,
     HeaderComponent,
-    NavigationComponent,
-    LoginLayoutComponent,
-    HomeLayoutComponent
+    NavigationComponent
   ],
   imports: [
     BrowserModule,

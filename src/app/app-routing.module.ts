@@ -5,17 +5,14 @@ import { AuthGuard } from './guards/auth.guard';
 // import { HeroesComponent } from './heroes/heroes.component';
 // import { HeroDetailComponent } from './hero-detail/hero-detail.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
-import { DataentriesComponent } from './dataentries/dataentries.component';
-// import { LoginLayoutComponent } from './layouts/login-layout/login-layout.component';
-// import { HomeLayoutComponent } from './layouts/home-layout/home-layout.component';
+import { TransactionsComponent } from './transactions/transactions.component';
 
 const routes: Routes = [
-  { path: '', component: DataentriesComponent, canActivate: [AuthGuard] },
+  { path: '', component: TransactionsComponent, canActivate: [AuthGuard] },
   { path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard] },
   // { path: 'detail/:id', component: HeroDetailComponent, canActivate: [AuthGuard] },
   // { path: 'heroes', component: HeroesComponent, canActivate: [AuthGuard] },
   { path: 'login', component: LoginComponent },
-  { path: 'logout', component: LoginComponent },
 
   // Redirect to home.
   { path: '**', redirectTo: ''}
