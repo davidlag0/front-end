@@ -49,11 +49,6 @@
     </mat-nav-list>
   </mat-sidenav>
   <mat-sidenav-content>
-    <!-- Add Content Here -->
-    <mat-toolbar class="list-toolbar" *ngIf="authService.loggedIn()">
-      <mat-checkbox></mat-checkbox>
-      <button mat-button><mat-icon>refresh</mat-icon></button>
-    </mat-toolbar>
     <router-outlet></router-outlet>
   </mat-sidenav-content>
 </mat-sidenav-container>

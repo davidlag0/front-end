@@ -10,3 +10,27 @@ table {
 td, th {
   width: 25%;
 }
+
+.list-toolbar .mat-button {
+  border-radius: 100%;
+  padding: 1px 7px 2px;
+  margin-left: 1em;
+  min-width: unset;
+}
+
+.list-toolbar .mat-checkbox {
+  margin-left: 0.5em;
+}
+
+.filter-input {
+  margin-left: 2em;
+  width: 30em;
+}
+
+.toolbar-spacer {
+  flex: 1 1 auto;
+}
+
+.mat-paginator {
+  background-color: inherit;
+}
