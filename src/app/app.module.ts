@@ -22,6 +22,7 @@ import { MaterialAppModule } from './ngmaterial.module';
 import { NavigationComponent } from './navigation/navigation.component';
 import { LayoutModule } from '@angular/cdk/layout';
 import { MatToolbarModule, MatButtonModule, MatSidenavModule, MatIconModule, MatListModule } from '@angular/material';
+import { ReportsComponent } from './reports/reports.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import { MatToolbarModule, MatButtonModule, MatSidenavModule, MatIconModule, Mat
     TransactionsComponent,
     LoginComponent,
     HeaderComponent,
-    NavigationComponent
+    NavigationComponent,
+    ReportsComponent
   ],
   imports: [
     BrowserModule,
