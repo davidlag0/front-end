@@ -11,9 +11,15 @@ td, th {
   width: 25%;
 }
 
+.table-container {
+  height: 400px;
+  overflow: auto;
+}
+
 .list-toolbar {
   position: sticky;
   z-index: 99;
+  overflow: auto;
 }
 
 .list-toolbar .mat-button {
