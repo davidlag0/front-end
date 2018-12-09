@@ -10,15 +10,15 @@
   <img src="/assets/sequoia_logo.svg" class="logo" height="30">
   <span class="spacer"></span>
   <div *ngIf="authService.loggedIn()">
-    <button mat-button>User: {{ authService.username }}</button>
-    <button mat-button (click)="logout()">Logout</button>
+    <button mat-button>Usager: {{ authService.username }}</button>
+    <button mat-button (click)="logout()">Déconnexion</button>
   </div>
 </mat-toolbar>
 
 <mat-sidenav-container class="sidenav-container">
   <mat-sidenav #drawer class="sidenav" mode="side" opened *ngIf="authService.loggedIn()">
     <button mat-flat-button color="primary" class="new-transaction-button">
-      <mat-icon>add</mat-icon>New transaction
+      <mat-icon>add</mat-icon>Nouvelle transaction
     </button>
     <mat-divider></mat-divider>
     <mat-nav-list>
@@ -28,15 +28,15 @@
       </mat-list-item>
       <mat-list-item>
         <mat-icon>description</mat-icon>
-        <a href="#">Reports</a>
+        <a href="#">Rapports</a>
       </mat-list-item>
       <mat-list-item>
         <mat-icon>list_alt</mat-icon>
-        <a href="#">Home Inventory</a>
+        <a href="#">Inventaire personnel</a>
       </mat-list-item>
       <mat-list-item>
         <mat-icon>dashboard</mat-icon>
-        <a href="#">Dashboards</a>
+        <a href="#">Tableaux de bord</a>
       </mat-list-item>
       <mat-list-item>
         <mat-icon>library_books</mat-icon>
@@ -44,7 +44,7 @@
       </mat-list-item>
       <mat-list-item>
         <mat-icon>settings</mat-icon>
-        <a href="#">Settings</a>
+        <a href="#">Paramètres</a>
       </mat-list-item>
     </mat-nav-list>
   </mat-sidenav>

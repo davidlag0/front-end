@@ -12,6 +12,7 @@ import { MatSortModule } from '@angular/material';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatTabsModule } from '@angular/material/tabs';
 
 @NgModule({
   imports: [MatButtonModule,
@@ -24,7 +25,8 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
             MatSortModule,
             MatProgressSpinnerModule,
             MatToolbarModule,
-            MatCheckboxModule],
+            MatCheckboxModule,
+            MatTabsModule],
   exports: [MatButtonModule,
             MatFormFieldModule,
             MatInputModule,
@@ -35,6 +37,7 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
             MatSortModule,
             MatProgressSpinnerModule,
             MatToolbarModule,
-            MatCheckboxModule]
+            MatCheckboxModule,
+            MatTabsModule]
 })
 export class MaterialAppModule { }
