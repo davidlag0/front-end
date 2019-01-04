@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
+        <style type="text/css">
+          tr:hover {
+            background-color: #ffff99;
+            outline: 1px solid red;
+          }
+          .toolbar-cell {
+            overflow: visible;
+            width: 10px;
+          }
+          .toolbar {
+            display: none;
+            height:24px;
+            width: 60px;
+          }
+          tr:hover > .toolbar-cell > .toolbar {
+            display: block;
+            border: 1px solid red;
+            /*width: 100px;*/
+            overflow: visible;
+          }
+          table {
+              width: 100%;
+          }
+          td {
+              height: 24px;
+              overflow: visible;
+          }
+          tr {
+              background-color: #efefef;
+          }
+        </style>
+    </head>
+    <body>
+<table>
+    <tr>
+        <td>Date</td>
+        <td>Custom Description</td>
+        <td>Credit</td>
+        <td>Debit</td>
+        <td>Store</td>
+        <td>Account</td>
+        <td class="toolbar-cell"></td>
+    </tr>
+    <tr>
+        <td>2019-01-01</td>
+        <td>Another expense</td>
+        <td>5.00</td>
+        <td></td>
+        <td>Test Store</td>
+        <td>Test Checking Account</td>
+        <td class="toolbar-cell">
+          <div class="toolbar">
+            <i class="material-icons">edit</i>
+            <i class="material-icons">delete</i>
+          </div>
+        </td>
+    </tr>
+    <tr>
+      <td>2019-01-02</td>
+      <td>Deposit to savings</td>
+      <td></td>
+      <td>50.00</td>
+      <td></td>
+      <td>Test Savings Account</td>
+      <td class="toolbar-cell">
+        <div class="toolbar">
+          <i class="material-icons">edit</i>
+          <i class="material-icons">delete</i>
+        </div>
+      </td>
+    </tr>
+</table>
+</body>
+</html>

@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <script type="text/javascript">
+    function addClass(){
+      document.getElementById("mytr").classList.add('aqw');
+    }
+    function removeClass(){
+      document.getElementById("mytr").classList.remove('aqw');
+    }
+    window.onload = function(){
+        document.getElementById("mytr").addEventListener( 'mousemove', addClass);
+        document.getElementById("mytr").addEventListener( 'mouseout', removeClass);
+    }
+  </script>
+  <style type="text/css">
+    .zt, .zt > tbody {
+      display: block;
+    }
+    .F {
+      table-layout: fixed;
+      width: 100%;
+      border-spacing: 0;
+      padding: 0;
+    }
+    .cf {
+      border-collapse: collapse;
+    }
+    td {
+      margin: 0;
+      font-family: Roboto,RobotoDraft,Helvetica,Arial,sans-serif;
+    }
+    .zA {
+      padding-bottom: 10px;
+      padding-top: 10px;
+      box-shadow: inset 0 -1px 0 0 rgba(100,121,143,0.122);
+      display: flex;
+      position: relative;
+      cursor: pointer;
+    }
+    .zA:hover {
+      box-shadow: inset 1px 0 0 #dadce0, inset -1px 0 0 #dadce0, 0 1px 2px 0 rgba(60,64,67,.3), 0 1px 3px 1px rgba(60,64,67,.15);
+      z-index: 1;
+    }
+    .zA > .a4w {
+      -webkit-font-smoothing: antialiased;
+      font-family: Roboto,RobotoDraft,Helvetica,Arial,sans-serif;
+      font-size: .875rem;
+      letter-spacing: .2px;
+      display: flex;
+      flex: 1 1 auto;
+      height: auto;
+      min-width: 0;
+      padding-right: 10px;
+    }
+    .zA > .xY {
+      align-items: center;
+      border: none;
+      flex: 0 0 auto;
+      line-height: 20px;
+      -webkit-box-ordinal-group: 1;
+      order: 1;
+      padding: 0;
+    }
+    .zA.aqw>.bq4.xY {
+      display: flex;
+    }
+    .zA > .xY.bq4 {
+      display: none;
+    }
+    .zA > .yX {
+      display: flex;
+      flex-basis: 168px;
+      max-width: 168px;
+      padding-left: 0;
+      padding-right: 32px;
+    }
+    .zA.aqw > .xW {
+      display: none;
+    }
+    .zA > .xW {
+      -webkit-font-smoothing: auto;
+      font-family: Roboto,RobotoDraft,Helvetica,Arial,sans-serif;
+      font-size: .75rem;
+      letter-spacing: .3px;
+      flex-basis: 56px;
+      justify-content: flex-end;
+      max-width: 56px;
+      padding-left: 0;
+      padding-right: 16px;
+    }
+    .a4w {
+      flex-wrap: wrap;
+      overflow: visible;
+    }
+    .y0 {
+      background: rgba(242,245,245,0.8);
+      color: #202124;
+    }
+    .y0 > .xW {
+      color: #5f6368;
+    }
+    .x7 {
+      color: #202124;
+      background: #c2dbff;
+    }
+    .xY {
+      empty-cells: show;
+      font-size: .875rem;
+      height: 20px;
+      outline: none;
+      vertical-align: middle;
+      white-space: nowrap;
+    }
+    .xW {
+      text-align: right;
+    }
+    .bqY {
+      display: flex;
+      margin-right: 6px;
+      padding: 0;
+    }
+    .bqX {
+      height: 20px;
+      width: 20px;
+      opacity: .54;
+      align-items: center;
+      border: none;
+      display: inline-flex;
+      justify-content: center;
+      outline: none;
+      position: relative;
+      z-index: 0;
+      cursor: pointer;
+      list-style: none;
+      margin: 0 10px;
+    }
+    .brq {
+      background-image: url('https://www.gstatic.com/images/icons/material/system/1x/archive_black_20dp.png');
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: 20px;
+    }
+    .bru {
+      background-image: url('https://www.gstatic.com/images/icons/material/system/1x/delete_black_20dp.png');
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: 20px;
+    }
+  </style>
+</head>
+<body>
+  <table cellpadding="0" class="F cf zt">
+    <colgroup>
+      <col>
+      <col>
+      <col>
+      <col>
+      <col class="bq4">
+    </colgroup>
+    <tbody>
+      <tr class="zA y0" tabindex="-1" id="mytr"><!-- class x7 added with checkmark -->
+        <!-- class aqw added on hover -->
+        <!-- class byw added when email contains an attachment -->
+        <td class="blop xY">Checkbox</td>
+        <td class="yX xY">Name Name Name Name</td>
+        <td class="a4w xY" tabindex="-1">Subject Subject Subject Subject Subject</td>
+        <td class="xW xY">Date Date Date</td>
+        <td class="bq4 xY">
+          <ul class="bqY">
+            <li class="bqX brq"></li>
+            <li class="bqX bru"></li>
+          </ul>
+        </td>
+      </tr>
+      <tr class="zA y0" tabindex="-1"><!-- class x7 added with checkmark -->
+        <td class="blop xY">Checkbox</td>
+        <td class="yX xY">Name Name Name Name</td>
+        <td class="a4w xY" tabindex="-1">Subject Subject Subject Subject Subject</td>
+        <td class="xW xY">Date Date Date</td>
+        <td class="bq4 xY">
+          <ul class="bqY">
+            <li class="bqX brq"></li>
+            <li class="bqX bru"></li>
+          </ul>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</body>
+</html>

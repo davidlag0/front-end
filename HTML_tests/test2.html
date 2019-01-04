@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style type="text/css">
+          .action-td {
+              display: none;
+          }
+          tr:hover > .info-td {
+              display: none;
+          }
+          tr:hover > .action-td {
+              display: table-cell;
+              opacity: 0.1;
+          }
+          table {
+              width: 100%;
+          }
+          td {
+              width: 25%;
+          }
+          tr {
+              background-color: #efefef;
+          }
+        </style>
+    </head>
+    <body>
+<table>
+    <tr>
+        <td>Number</td>
+        <td>Name</td>
+        <td>E-mail</td>
+        <td>Role</td>
+    </tr>
+    <tr>
+        <td class="info-td">1</td>
+        <td class="info-td">James</td>
+        <td class="info-td">Hetfield</td>
+        <td class="info-td">Owner</td>
+        <td class="action-td">checkbox</td>
+        <td class="action-td" colspan="2">details --></td>
+        <td class="action-td">buttons</td>
+    </tr>
+</table>
+</body>
+</html>

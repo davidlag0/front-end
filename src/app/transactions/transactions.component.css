@@ -8,7 +8,49 @@ table {
 }
 
 td, th {
-  width: 25%;
+  width: 10%;
+}
+
+td.checkbox-row, th.checkbox-row {
+  width: 8%;
+}
+
+.actions {
+  /*display: none;*/
+  border: solid red;
+}
+
+tr:hover {
+  background: #f5f5f5;
+  /*display: flex;
+  flex-wrap: nowrap;
+  flex-direction: row;
+  border: solid red;
+  width: 200px;
+  overflow: visible;
+  flex-direction: row-reverse;
+  border: solid red;
+  width: 0%;*/
+}
+/*
+tr:hover .actions {
+  background: #555555;
+  display: flex;
+}
+*/
+td .actions {
+  /*
+  border: solid green;
+  flex: 0 0 400px;
+  width: 0%;*/
+}
+
+.test-div {
+  position: absolute;
+  top: 0;
+  left: 0;
+  border: solid purple;
+  width: 100%;
 }
 
 .table-container {

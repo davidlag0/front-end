@@ -22,7 +22,7 @@ const NAMES: string[] = ['Maia', 'Asher', 'Olivia', 'Atticus', 'Amelia', 'Jack',
   styleUrls: ['./transactions.component.css']
 })
 export class TransactionsComponent implements OnInit {
-  displayedColumns: string[] = ['select', 'date', 'name', 'progress', 'color'];
+  displayedColumns: string[] = ['select', 'date', 'name', 'progress', 'color', 'actions'];
   dataSource: MatTableDataSource<UserData>;
   selection = new SelectionModel<UserData>(true, []);
 
@@ -62,6 +62,10 @@ export class TransactionsComponent implements OnInit {
     this.isAllSelected() ?
         this.selection.clear() :
         this.dataSource.data.forEach(row => this.selection.select(row));
+  }
+
+  showlog() {
+    console.log('blop!');
   }
 }
 

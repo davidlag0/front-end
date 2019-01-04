@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style type="text/css">
+            tr{
+                display: table-row;
+                transition-duration: .7s;
+                -o-transition-duration: .7s;
+                -moz-transition-duration: .7s;
+                -webkit-transition-duration: .7s;
+            }
+            tr.hidden{
+                opacity: 0;
+            }
+            table:hover tr.hidden{
+                opacity: 1;
+            }
+        </style>
+    </head>
+    <body>
+        <table>
+            <tr>
+                <td>Number</td>
+                <td>Name</td>
+                <td>E-mail</td>
+                <td>Role</td>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td>James</td>
+                <td>Hetfield</td>
+                <td>Owner</td>
+            </tr>
+            <tr class="hidden">
+                <td>
+                    <input type="checkbox" id="rich"/>
+                    <label for="rich">Rich ?</label>
+                </td>
+                <td colspan="2">
+                    <a href="#">Show</a>
+                </td>
+                <td>
+                    <a href="#">Édit</a>
+                    <a href="#">Delete</a>
+                </td>
+            </tr>
+        </table>
+    </body>
+</html>
